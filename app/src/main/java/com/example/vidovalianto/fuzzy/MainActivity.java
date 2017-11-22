@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    int sdk,sdg,byk,fll;
+    float sdk,sdg,byk,fll;
     float sdgn,dgn,nrml,pns;
 
     float[] ptr;
@@ -58,24 +58,24 @@ public class MainActivity extends AppCompatActivity {
 
         if(densitas<=0.25)       //sigm=jumlah orang
         {
-            sdk=100-(sigm*400);         //sdk=sedikit
-            sdg=(sigm*400);             //sdg=sedang
+            sdk=100-(densitas*400);         //sdk=sedikit
+            sdg=(densitas*400);             //sdg=sedang
             byk=0;                     //byk=banyak
             fll=0;                     //fll=full
         }
         else if(densitas>0.25 && densitas<=0.5)
         {
             sdk=0;
-            sdg=200-(sigm*400);
-            byk=(sigm*400)-100;
+            sdg=200-(densitas*400);
+            byk=(densitas*400)-100;
             fll=0;
         }
         else if(densitas>0.5 && densitas<=0.75)
         {
             sdk=0;
             sdg=0;
-            byk=300-(sigm*400);
-            fll=(sigm*400)-200;
+            byk=300-(densitas*400);
+            fll=(densitas*400)-200;
         }
         else
         {
