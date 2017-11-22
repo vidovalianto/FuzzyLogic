@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     float jml_nil,jml_nilteng;
     float coa;
 
-    EditText et_orang,et_suhu;
+    EditText et_orang,et_suhu,et_luas;
     TextView tv_kecepatan;
 
     @Override
@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
         et_orang = (EditText) findViewById(R.id.jumlahorang);
         et_suhu = (EditText) findViewById(R.id.suhu);
+        et_luas = (EditText) findViewById(R.id.luasruangan);
 
         tv_kecepatan = (TextView) findViewById(R.id.kecepatan);
 
@@ -38,7 +39,8 @@ public class MainActivity extends AppCompatActivity {
                 initializeArray();
                 String jumlahorang = et_orang.getText().toString();
                 String suhu = et_suhu.getText().toString();
-                Kepadatan(Integer.valueOf(jumlahorang));
+                String luasruangan = et_luas.getText().toString();
+                Kepadatan(Integer.valueOf(jumlahorang),Integer.valueOf(luasruangan));
                 mengukurSuhu(Integer.valueOf(suhu));
                 rule();
                 kecepatanKipas();
@@ -47,30 +49,33 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void Kepadatan(int sigm){
+    public void Kepadatan(int sigm,int luas){
 
         //fuzzyfikasi jumlah orang
 
-        if(sigm<=5)                //sigm=jumlah orang
+        int luasorang = sigm * 2;
+        float densitas = luasorang/luas;
+
+        if(densitas<=0.25)       //sigm=jumlah orang
         {
-            sdk=100-(sigm*20);         //sdk=sedikit
-            sdg=(sigm*20);             //sdg=sedang
+            sdk=100-(sigm*400);         //sdk=sedikit
+            sdg=(sigm*400);             //sdg=sedang
             byk=0;                     //byk=banyak
             fll=0;                     //fll=full
         }
-        else if(sigm>5 && sigm<=10)
+        else if(densitas>0.25 && densitas<=0.5)
         {
             sdk=0;
-            sdg=200-(sigm*20);
-            byk=(sigm*20)-100;
+            sdg=200-(sigm*400);
+            byk=(sigm*400)-100;
             fll=0;
         }
-        else if(sigm>10 && sigm<=15)
+        else if(densitas>0.5 && densitas<=0.75)
         {
             sdk=0;
             sdg=0;
-            byk=300-(sigm*20);
-            fll=(sigm*20)-200;
+            byk=300-(sigm*400);
+            fll=(sigm*400)-200;
         }
         else
         {
@@ -81,6 +86,42 @@ public class MainActivity extends AppCompatActivity {
         }
 
     };
+
+
+//    public void Kepadatan(int sigm){
+//
+//        //fuzzyfikasi jumlah orang
+//
+//        if(sigm<=5)                //sigm=jumlah orang
+//        {
+//            sdk=100-(sigm*20);         //sdk=sedikit
+//            sdg=(sigm*20);             //sdg=sedang
+//            byk=0;                     //byk=banyak
+//            fll=0;                     //fll=full
+//        }
+//        else if(sigm>5 && sigm<=10)
+//        {
+//            sdk=0;
+//            sdg=200-(sigm*20);
+//            byk=(sigm*20)-100;
+//            fll=0;
+//        }
+//        else if(sigm>10 && sigm<=15)
+//        {
+//            sdk=0;
+//            sdg=0;
+//            byk=300-(sigm*20);
+//            fll=(sigm*20)-200;
+//        }
+//        else
+//        {
+//            sdk=0;
+//            sdg=0;
+//            byk=0;
+//            fll=100;
+//        }
+//
+//    };
 
     public void mengukurSuhu(int tmp ){
 

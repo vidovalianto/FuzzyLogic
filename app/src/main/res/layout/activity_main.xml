@@ -11,6 +11,7 @@
         android:id="@+id/jumlahorang"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textAlignment="center"
         android:hint="Banyak Orang"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -26,13 +27,23 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    <EditText
+        android:id="@+id/luasruangan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="luas"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="@id/suhu"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
     <TextView
         android:id="@+id/kecepatan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hasil Kecepatan"
         android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="@id/suhu"
+        app:layout_constraintBottom_toBottomOf="@id/luasruangan"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
