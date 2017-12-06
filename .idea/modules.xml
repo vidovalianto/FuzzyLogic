@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/FuzzyLogic.iml" filepath="$PROJECT_DIR$/FuzzyLogic.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/FuzzyLogic.iml" filepath="$PROJECT_DIR$/.idea/FuzzyLogic.iml" />
+      <module fileurl="file://E:\codes\GitHub\FuzzyLogic\FuzzyLogic.iml" filepath="E:\codes\GitHub\FuzzyLogic\FuzzyLogic.iml" />
+      <module fileurl="file://E:\codes\GitHub\FuzzyLogic\app\app.iml" filepath="E:\codes\GitHub\FuzzyLogic\app\app.iml" />
     </modules>
   </component>
 </project>

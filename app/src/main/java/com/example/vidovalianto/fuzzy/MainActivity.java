@@ -9,8 +9,8 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    float sdk,sdg,byk,fll;
-    float sdgn,dgn,nrml,pns;
+    float sedikit,sedang,banyak,full;
+    float sdingin,dingin,normal,panas;
 
     float[] ptr;
     float[] nilteng;
@@ -60,31 +60,31 @@ public class MainActivity extends AppCompatActivity {
 
         if(densitas<=0.25)       //sigm=jumlah orang
         {
-            sdk=100-(densitas*400);         //sdk=sedikit
-            sdg=(densitas*400);             //sdg=sedang
-            byk=0;                     //byk=banyak
-            fll=0;                    //fll=full
+            sedikit=100-(densitas*400);         //sedikit=sedikit
+            sedang=(densitas*400);             //sedang=sedang
+            banyak=0;                     //banyak=banyak
+            full=0;                    //full=full
         }
         else if(densitas>0.25 && densitas<=0.5)
         {
-            sdk=0;
-            sdg=200-(densitas*400);
-            byk=(densitas*400)-100;
-            fll=0;
+            sedikit=0;
+            sedang=200-(densitas*400);
+            banyak=(densitas*400)-100;
+            full=0;
         }
         else if(densitas>0.5 && densitas<=0.75)
         {
-            sdk=0;
-            sdg=0;
-            byk=300-(densitas*400);
-            fll=(densitas*400)-200;
+            sedikit=0;
+            sedang=0;
+            banyak=300-(densitas*400);
+            full=(densitas*400)-200;
         }
         else
         {
-            sdk=0;
-            sdg=0;
-            byk=0;
-            fll=100;
+            sedikit=0;
+            sedang=0;
+            banyak=0;
+            full=100;
         }
 
     };
@@ -94,129 +94,133 @@ public class MainActivity extends AppCompatActivity {
         //fuzzyfikasi suhu
         if(tmp<=16)                //tmp=temperatur terukur
         {
-            sdgn=100;               //sdgn=sangat dingin
-            dgn=0;                  //dgn=gingin
-            nrml=0;                 //nrml=normal
-            pns=0;                  //pns=panas
+            sdingin=100;               //sdingin=sangat dingin
+            dingin=0;                  //dingin=gingin
+            normal=0;                 //normal=normal
+            panas=0;                  //panas=panas
         }
         else if(tmp>16 && tmp<=24)
         {
-            sdgn=300-((tmp*25)/2);
-            dgn=((tmp*25)/2)-200;
-            nrml=0;
-            pns=0;
+            sdingin=300-((tmp*25)/2);
+            dingin=((tmp*25)/2)-200;
+            normal=0;
+            panas=0;
         }
         else if(tmp>24 && tmp<=32)
         {
-            sdgn=0;
-            dgn=400-((tmp*25)/2);
-            nrml=((tmp*25)/2)-300;
-            pns=0;
+            sdingin=0;
+            dingin=400-((tmp*25)/2);
+            normal=((tmp*25)/2)-300;
+            panas=0;
         }
         else if(tmp>32 && tmp<=40)
         {
-            sdgn=0;
-            dgn=0;
-            nrml=500-((tmp*25)/2);
-            pns=((tmp*25)/2)-400;
+            sdingin=0;
+            dingin=0;
+            normal=500-((tmp*25)/2);
+            panas=((tmp*25)/2)-400;
         }
         else
         {
-            sdgn=0;
-            dgn=0;
-            nrml=0;
-            pns=100;
+            sdingin=0;
+            dingin=0;
+            normal=0;
+            panas=100;
         }
     }
 
 
     public void initializeArray(){
-        ptr = new float[]{sdk,sdk,sdk,sdk,sdg,sdg,sdg,sdg,byk,byk,byk,byk,fll,fll,fll,fll};
-        nilteng = new float[]{sdgn,dgn,nrml,pns,sdgn,dgn,nrml,pns,sdgn,dgn,nrml,pns,sdgn,dgn,nrml,pns};
+        ptr = new float[]{sedikit,sedikit,sedikit,sedikit,sedang,sedang,sedang,sedang,banyak,banyak,banyak,banyak,full,full,full,full};
+        nilteng = new float[]{sdingin,dingin,normal,panas,sdingin,dingin,normal,panas,sdingin,dingin,normal,panas,sdingin,dingin,normal,panas};
     }
+    //ptr[ ]=adalah variabel untuk menampung nilai derajat keanggotaan dari input
+    //nilteng[ ]=adalah nilai titik tengah dari grafik fuzzyfikasi putaran kipas angin yang merupakan implementasi dari rule
 
+
+    //metode tsukamoto
     public void rule(){
 
         //rule based
-        if(sdk<sdgn)
-        {ptr[0]=sdk;nilteng[0]=64;}
+        if(sedikit<sdingin)
+        {ptr[0]=sedikit;nilteng[0]=64;}
         else
-        {ptr[0]=sdgn;nilteng[0]=64;}
+        {ptr[0]=sdingin;nilteng[0]=64;}
 
-        if(sdk<dgn)
-        {ptr[1]=sdk;nilteng[1]=64;}
+        if(sedikit<dingin)
+        {ptr[1]=sedikit;nilteng[1]=64;}
         else
-        {ptr[1]=dgn;nilteng[1]=64;}
+        {ptr[1]=dingin;nilteng[1]=64;}
 
-        if(sdk<nrml)
-        {ptr[2]=sdk;nilteng[2]=128;}
+        if(sedikit<normal)
+        {ptr[2]=sedikit;nilteng[2]=128;}
         else
-        {ptr[2]=nrml;nilteng[2]=128;}
+        {ptr[2]=normal;nilteng[2]=128;}
 
-        if(sdk<pns)
-        {ptr[3]=sdk;nilteng[3]=192;}
+        if(sedikit<panas)
+        {ptr[3]=sedikit;nilteng[3]=192;}
         else
-        {ptr[3]=pns;nilteng[3]=192;}
+        {ptr[3]=panas;nilteng[3]=192;}
 
-        if(sdg<sdgn)
-        {ptr[4]=sdg;nilteng[4]=64;}
+        if(sedang<sdingin)
+        {ptr[4]=sedang;nilteng[4]=64;}
         else
-        {ptr[4]=sdgn;nilteng[4]=64;}
+        {ptr[4]=sdingin;nilteng[4]=64;}
 
-        if(sdg<dgn)
-        {ptr[5]=sdg;nilteng[5]=64;}
+        if(sedang<dingin)
+        {ptr[5]=sedang;nilteng[5]=64;}
         else
-        {ptr[5]=dgn;nilteng[5]=64;}
+        {ptr[5]=dingin;nilteng[5]=64;}
 
-        if(sdg<nrml)
-        {ptr[6]=sdg;nilteng[6]=128;}
+        if(sedang<normal)
+        {ptr[6]=sedang;nilteng[6]=128;}
         else
-        {ptr[6]=nrml;nilteng[6]=128;}
+        {ptr[6]=normal;nilteng[6]=128;}
 
-        if(sdg<pns)
-        {ptr[7]=sdg;nilteng[7]=255;}
+        if(sedang<panas)
+        {ptr[7]=sedang;nilteng[7]=255;}
         else
-        {ptr[7]=pns;nilteng[7]=255;}
+        {ptr[7]=panas;nilteng[7]=255;}
 
-        if(byk<sdgn)
-        {ptr[8]=byk;nilteng[8]=64;}
+        if(banyak<sdingin)
+        {ptr[8]=banyak;nilteng[8]=64;}
         else
-        {ptr[8]=sdgn;nilteng[8]=64;}
+        {ptr[8]=sdingin;nilteng[8]=64;}
 
-        if(byk<dgn)
-        {ptr[9]=byk;nilteng[9]=64;}
+        if(banyak<dingin)
+        {ptr[9]=banyak;nilteng[9]=64;}
         else
-        {ptr[9]=dgn;nilteng[9]=64;}
+        {ptr[9]=dingin;nilteng[9]=64;}
 
-        if(byk<nrml)
-        {ptr[10]=byk;nilteng[10]=192;}
+        if(banyak<normal)
+        {ptr[10]=banyak;nilteng[10]=192;}
         else
-        {ptr[10]=nrml;nilteng[10]=192;}
+        {ptr[10]=normal;nilteng[10]=192;}
 
-        if(byk<pns)
-        {ptr[11]=byk;nilteng[11]=255;}
+        if(banyak<panas)
+        {ptr[11]=banyak;nilteng[11]=255;}
         else
-        {ptr[11]=pns;nilteng[11]=255;}
+        {ptr[11]=panas;nilteng[11]=255;}
 
-        if(fll<sdgn)
-        {ptr[12]=fll;nilteng[12]=64;}
+        if(full<sdingin)
+        {ptr[12]=full;nilteng[12]=64;}
         else
-        {ptr[12]=sdgn;nilteng[12]=64;}
+        {ptr[12]=sdingin;nilteng[12]=64;}
 
-        if(fll<dgn)
-        {ptr[13]=fll;nilteng[13]=128;}
+        if(full<dingin)
+        {ptr[13]=full;nilteng[13]=128;}
         else
-        {ptr[13]=dgn;nilteng[13]=128;}
+        {ptr[13]=dingin;nilteng[13]=128;}
 
-        if(fll<nrml)
-        {ptr[14]=fll;nilteng[14]=192;}
+        if(full<normal)
+        {ptr[14]=full;nilteng[14]=192;}
         else
-        {ptr[14]=nrml;nilteng[14]=192;}
+        {ptr[14]=normal;nilteng[14]=192;}
 
-        if(fll<pns)
-        {ptr[15]=fll;nilteng[15]=255;}
+        if(full<panas)
+        {ptr[15]=full;nilteng[15]=255;}
         else
-        {ptr[15]=pns;nilteng[15]=255;}
+        {ptr[15]=panas;nilteng[15]=255;}
     }
 
     public void kecepatanKipas(){
