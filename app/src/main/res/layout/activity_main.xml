@@ -9,10 +9,18 @@
 
 
     <TextView
-        android:id="@+id/kecepatan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Hasil Kecepatan"
+        android:textSize="20dp"
+        android:textAlignment="center"
+        android:padding="20dp"
+        />
+    <TextView
+        android:id="@+id/kecepatan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Kecepatan"
         android:textSize="20dp"
         android:textAlignment="center"
         android:padding="20dp"
