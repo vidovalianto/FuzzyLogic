@@ -257,7 +257,7 @@ public class MainActivity extends AppCompatActivity {
         jml_nil=ptr[0]+ptr[1]+ptr[2]+ptr[3]+ptr[4]+ptr[5]+ptr[6]+ptr[7]+ptr[8]+ptr[9]+ptr[10]+ptr[11]+ptr[12]+ptr[13]+ptr[14]+ptr[15];
         jml_nilteng=(ptr[0]*nilteng[0])+(ptr[1]*nilteng[1])+(ptr[2]*nilteng[2])+(ptr[3]*nilteng[3])+(ptr[4]*nilteng[4])+(ptr[5]*nilteng[5])+(ptr[6]*nilteng[6])+(ptr[7]*nilteng[7])+(ptr[8]*nilteng[8])+(ptr[9]*nilteng[9])+(ptr[10]*nilteng[10])+(ptr[11]*nilteng[11])+(ptr[12]*nilteng[12])+(ptr[13]*nilteng[13])+(ptr[14]*nilteng[14])+(ptr[15]*nilteng[15]);
 
-//defuzzyfikasi
+        //defuzzyfikasi
         if(jml_nil==0)
         {
             coa=0;

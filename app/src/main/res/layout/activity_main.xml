@@ -15,6 +15,7 @@
         android:text="Hasil Kecepatan"
         android:textSize="20dp"
         android:textAlignment="center"
+        android:padding="20dp"
         />
     <EditText
         android:id="@+id/jumlahorang"
@@ -23,6 +24,7 @@
         android:textAlignment="center"
         android:textSize="20dp"
         android:hint="Banyak Orang"
+        android:padding="20dp"
         />
     <EditText
         android:id="@+id/suhu"
@@ -31,6 +33,7 @@
         android:hint="Suhu"
         android:textSize="20dp"
         android:textAlignment="center"
+        android:padding="20dp"
         />
     <EditText
         android:id="@+id/luasruangan"
@@ -39,6 +42,7 @@
         android:hint="luas"
         android:textSize="20dp"
         android:textAlignment="center"
+        android:padding="20dp"
         />
     <Button
         android:id="@+id/send"
@@ -46,6 +50,7 @@
         android:textSize="20dp"
         android:layout_height="wrap_content"
         android:text="Cari Kecepatan"
+        android:padding="20dp"
         />
 
 </LinearLayout>
