@@ -36,18 +36,19 @@ public class MainActivity extends AppCompatActivity {
         btn_send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                initializeArray();
                 String jumlahorang = et_orang.getText().toString();
                 String suhu = et_suhu.getText().toString();
                 String luasruangan = et_luas.getText().toString();
                 Kepadatan(Integer.valueOf(jumlahorang),Integer.valueOf(luasruangan));
                 mengukurSuhu(Integer.valueOf(suhu));
+                initializeArray();
                 rule();
                 kecepatanKipas();
                 tv_kecepatan.setText(String.valueOf(coa));
             }
         });
     }
+
 
     public void Kepadatan(int sigm,int luas){
 
@@ -61,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
             sdk=100-(densitas*400);         //sdk=sedikit
             sdg=(densitas*400);             //sdg=sedang
             byk=0;                     //byk=banyak
-            fll=0;                     //fll=full
+            fll=0;                    //fll=full
         }
         else if(densitas>0.25 && densitas<=0.5)
         {
@@ -86,42 +87,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
     };
-
-
-//    public void Kepadatan(int sigm){
-//
-//        //fuzzyfikasi jumlah orang
-//
-//        if(sigm<=5)                //sigm=jumlah orang
-//        {
-//            sdk=100-(sigm*20);         //sdk=sedikit
-//            sdg=(sigm*20);             //sdg=sedang
-//            byk=0;                     //byk=banyak
-//            fll=0;                     //fll=full
-//        }
-//        else if(sigm>5 && sigm<=10)
-//        {
-//            sdk=0;
-//            sdg=200-(sigm*20);
-//            byk=(sigm*20)-100;
-//            fll=0;
-//        }
-//        else if(sigm>10 && sigm<=15)
-//        {
-//            sdk=0;
-//            sdg=0;
-//            byk=300-(sigm*20);
-//            fll=(sigm*20)-200;
-//        }
-//        else
-//        {
-//            sdk=0;
-//            sdg=0;
-//            byk=0;
-//            fll=100;
-//        }
-//
-//    };
 
     public void mengukurSuhu(int tmp ){
 
