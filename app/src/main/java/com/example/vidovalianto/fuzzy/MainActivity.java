@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         et_orang = (EditText) findViewById(R.id.jumlahorang);
+
         et_suhu = (EditText) findViewById(R.id.suhu);
         et_luas = (EditText) findViewById(R.id.luasruangan);
 
