@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     float coa;
 
     EditText et_orang,et_suhu,et_luas;
-    TextView tv_kecepatan;
+    TextView tv_kecepatan,tv_hintdensitas,tv_hintsuhu,tv_hintkecepatan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +32,9 @@ public class MainActivity extends AppCompatActivity {
         et_luas = (EditText) findViewById(R.id.luasruangan);
 
         tv_kecepatan = (TextView) findViewById(R.id.kecepatan);
+        tv_hintdensitas = (TextView) findViewById(R.id.hintdensitas);
+        tv_hintsuhu = (TextView) findViewById(R.id.hintsuhu);
+        tv_hintkecepatan = (TextView) findViewById(R.id.hintkecepatan);
 
         Button btn_send = (Button) findViewById(R.id.send);
         btn_send.setOnClickListener(new View.OnClickListener() {
@@ -64,6 +67,11 @@ public class MainActivity extends AppCompatActivity {
             sedang=(densitas*400);
             banyak=0;
             full=0;
+            if(sedikit>=sedang){
+                tv_hintdensitas.setText("Sedikit");
+            }else{
+                tv_hintdensitas.setText("Sedang");
+            }
         }
         else if(densitas>0.25 && densitas<=0.5)
         {
@@ -71,6 +79,12 @@ public class MainActivity extends AppCompatActivity {
             sedang=200-(densitas*400);
             banyak=(densitas*400)-100;
             full=0;
+            if(banyak>=sedang){
+                tv_hintdensitas.setText("Banyak");
+            }else{
+                tv_hintdensitas.setText("Sedang");
+            }
+
         }
         else if(densitas>0.5 && densitas<=0.75)
         {
@@ -78,6 +92,11 @@ public class MainActivity extends AppCompatActivity {
             sedang=0;
             banyak=300-(densitas*400);
             full=(densitas*400)-200;
+            if(banyak>=full){
+                tv_hintdensitas.setText("Banyak");
+            }else{
+                tv_hintdensitas.setText("Full");
+            }
         }
         else
         {
@@ -85,6 +104,7 @@ public class MainActivity extends AppCompatActivity {
             sedang=0;
             banyak=0;
             full=100;
+            tv_hintdensitas.setText("Full");
         }
 
     };
@@ -99,6 +119,7 @@ public class MainActivity extends AppCompatActivity {
             dingin=0;
             normal=0;
             panas=0;
+            tv_hintsuhu.setText("Sangat Dingin");
         }
         else if(tmp>16 && tmp<=24)
         {
@@ -106,6 +127,11 @@ public class MainActivity extends AppCompatActivity {
             dingin=((tmp*25)/2)-200;
             normal=0;
             panas=0;
+            if(sdingin>=dingin){
+                tv_hintsuhu.setText("Sangat Dingin");
+            }else{
+                tv_hintsuhu.setText("Dingin");
+            }
         }
         else if(tmp>24 && tmp<=32)
         {
@@ -113,6 +139,11 @@ public class MainActivity extends AppCompatActivity {
             dingin=400-((tmp*25)/2);
             normal=((tmp*25)/2)-300;
             panas=0;
+            if(normal>=dingin){
+                tv_hintsuhu.setText("Normal");
+            }else{
+                tv_hintsuhu.setText("Dingin");
+            }
         }
         else if(tmp>32 && tmp<=40)
         {
@@ -120,6 +151,11 @@ public class MainActivity extends AppCompatActivity {
             dingin=0;
             normal=500-((tmp*25)/2);
             panas=((tmp*25)/2)-400;
+            if(normal>=panas){
+                tv_hintsuhu.setText("Normal");
+            }else{
+                tv_hintsuhu.setText("Panas");
+            }
         }
         else
         {
@@ -127,6 +163,7 @@ public class MainActivity extends AppCompatActivity {
             dingin=0;
             normal=0;
             panas=100;
+            tv_hintsuhu.setText("Panas");
         }
     }
 
@@ -237,6 +274,16 @@ public class MainActivity extends AppCompatActivity {
         else
         {
             coa=jml_nilteng/jml_nil;
+        }
+
+        if(coa<=96){
+            tv_hintkecepatan.setText("Sangat Pelan");
+        }else if(coa<=160){
+            tv_hintkecepatan.setText("Pelan");
+        }else if(coa<=224){
+            tv_hintkecepatan.setText("Sedang");
+        }else{
+            tv_hintkecepatan.setText("Cepat");
         }
     };
 

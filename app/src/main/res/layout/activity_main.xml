@@ -8,29 +8,129 @@
     tools:context="com.example.vidovalianto.fuzzy.MainActivity">
 
     <LinearLayout
+        android:padding="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-
+        android:orientation="horizontal"
         >
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="KECEPATAN"
-        android:textSize="18dp"
-        android:textAlignment="center"
-        android:padding="5dp"
-        />
-    <TextView
-        android:id="@+id/kecepatan"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="0"
-        android:textSize="30dp"
-        android:textAlignment="center"
-        android:padding="10dp"
-        />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="5dp"
+                android:gravity="bottom"
+                android:layout_weight="1"
+                >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:textSize="14dp"
+                android:text="Densitas"
+                android:padding="5dp"
+                android:layout_weight="1"
+                />
+            <TextView
+                android:id="@+id/hintdensitas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textSize="14dp"
+                android:text="-"
+                android:padding="5dp"
+                android:layout_weight="1"
+                />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:textSize="14dp"
+                    android:text="Suhu"
+                    android:textStyle="bold"
+                    android:padding="5dp"
+                    android:layout_weight="1"
+                    />
+                <TextView
+                    android:id="@+id/hintsuhu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:textSize="14dp"
+                    android:text="-"
+                    android:padding="5dp"
+                    android:layout_weight="1"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="KECEPATAN"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:textAlignment="center"
+                android:padding="5dp"
+                />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center">
+                <TextView
+                    android:id="@+id/kecepatan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textSize="20dp"
+                    android:textAlignment="center"
+                    android:padding="10dp"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="PWM"
+                    android:textSize="14dp"
+                    android:textAlignment="center"
+
+                    />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/hintkecepatan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textSize="14dp"
+                android:textAlignment="center"
+                android:padding="10dp"
+                />
+        </LinearLayout>
     </LinearLayout>
+
+
 
     <LinearLayout
         android:layout_width="match_parent"
