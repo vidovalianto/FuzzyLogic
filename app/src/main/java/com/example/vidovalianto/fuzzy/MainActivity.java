@@ -55,15 +55,15 @@ public class MainActivity extends AppCompatActivity {
 
         //fuzzyfikasi jumlah orang
 
-        int luasorang = sigm * 2;
+        int luasorang = sigm * 2;       //ini jadi diganti jadi jumlah orang aja gak?
         float densitas = luasorang/luas;
 
         if(densitas<=0.25)       //sigm=jumlah orang
         {
-            sedikit=100-(densitas*400);         //sedikit=sedikit
-            sedang=(densitas*400);             //sedang=sedang
-            banyak=0;                     //banyak=banyak
-            full=0;                    //full=full
+            sedikit=100-(densitas*400);
+            sedang=(densitas*400);
+            banyak=0;
+            full=0;
         }
         else if(densitas>0.25 && densitas<=0.5)
         {
@@ -91,13 +91,14 @@ public class MainActivity extends AppCompatActivity {
 
     public void mengukurSuhu(int tmp ){
 
-        //fuzzyfikasi suhu
-        if(tmp<=16)                //tmp=temperatur terukur
+        // fuzzyfikasi suhu
+
+        if(tmp<=16)                //tmp = temperatur terukur
         {
-            sdingin=100;               //sdingin=sangat dingin
-            dingin=0;                  //dingin=gingin
-            normal=0;                 //normal=normal
-            panas=0;                  //panas=panas
+            sdingin=100;
+            dingin=0;
+            normal=0;
+            panas=0;
         }
         else if(tmp>16 && tmp<=24)
         {
@@ -134,11 +135,12 @@ public class MainActivity extends AppCompatActivity {
         ptr = new float[]{sedikit,sedikit,sedikit,sedikit,sedang,sedang,sedang,sedang,banyak,banyak,banyak,banyak,full,full,full,full};
         nilteng = new float[]{sdingin,dingin,normal,panas,sdingin,dingin,normal,panas,sdingin,dingin,normal,panas,sdingin,dingin,normal,panas};
     }
-    //ptr[ ]=adalah variabel untuk menampung nilai derajat keanggotaan dari input
-    //nilteng[ ]=adalah nilai titik tengah dari grafik fuzzyfikasi putaran kipas angin yang merupakan implementasi dari rule
+    //ptr[] = variabel untuk menampung nilai derajat keanggotaan dari input
+    //nilteng[] = nilai titik tengah dari grafik fuzzyfikasi putaran kipas angin yang merupakan implementasi dari rule
+    //kenapa inisiasi nilai awal seperti itu? sayapun tak tahu.
 
 
-    //metode tsukamoto
+    //implikasi -> metode tsukamoto -> diambil yang membership degreenya kecil
     public void rule(){
 
         //rule based
@@ -227,7 +229,7 @@ public class MainActivity extends AppCompatActivity {
         jml_nil=ptr[0]+ptr[1]+ptr[2]+ptr[3]+ptr[4]+ptr[5]+ptr[6]+ptr[7]+ptr[8]+ptr[9]+ptr[10]+ptr[11]+ptr[12]+ptr[13]+ptr[14]+ptr[15];
         jml_nilteng=(ptr[0]*nilteng[0])+(ptr[1]*nilteng[1])+(ptr[2]*nilteng[2])+(ptr[3]*nilteng[3])+(ptr[4]*nilteng[4])+(ptr[5]*nilteng[5])+(ptr[6]*nilteng[6])+(ptr[7]*nilteng[7])+(ptr[8]*nilteng[8])+(ptr[9]*nilteng[9])+(ptr[10]*nilteng[10])+(ptr[11]*nilteng[11])+(ptr[12]*nilteng[12])+(ptr[13]*nilteng[13])+(ptr[14]*nilteng[14])+(ptr[15]*nilteng[15]);
 
-        //defuzzyfikasi
+        //defuzzyfikasi -> metode center of area. belom dikasih nilai linguistiknya nggak sih ini?? buat sebagai output
         if(jml_nil==0)
         {
             coa=0;
