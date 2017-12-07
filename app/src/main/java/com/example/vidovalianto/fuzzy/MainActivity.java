@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
         //fuzzyfikasi jumlah orang
 
-        int luasorang = sigm * 2;       //ini jadi diganti jadi jumlah orang aja gak?
+        int luasorang = sigm;       //ini jadi diganti jadi jumlah orang aja gak?
         float densitas = luasorang/luas;
 
         if(densitas<=0.25)       //sigm=jumlah orang
