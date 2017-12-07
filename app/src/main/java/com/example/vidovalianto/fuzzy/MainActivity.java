@@ -2,21 +2,26 @@ package com.example.vidovalianto.fuzzy;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+
 public class MainActivity extends AppCompatActivity {
 
-    float sedikit,sedang,banyak,full;
-    float sdingin,dingin,normal,panas;
+    private static final String TAG = "Testing" ;
+    double sedikit,sedang,banyak,full;
+    double sdingin,dingin,normal,panas;
 
-    float[] ptr;
-    float[] nilteng;
+    double[] ptr;
+    double[] nilteng;
 
-    float jml_nil,jml_nilteng;
-    float coa;
+    double jml_nil,jml_nilteng;
+    double coa;
 
     EditText et_orang,et_suhu,et_luas;
     TextView tv_kecepatan,tv_hintdensitas,tv_hintsuhu,tv_hintkecepatan;
@@ -57,9 +62,12 @@ public class MainActivity extends AppCompatActivity {
     public void Kepadatan(int sigm,int luas){
 
         //fuzzyfikasi jumlah orang
-
-        int luasorang = sigm;       //ini jadi diganti jadi jumlah orang aja gak?
-        float densitas = luasorang/luas;
+        double dsigm = Double.valueOf(sigm);
+        double dluas = Double.valueOf(luas);
+//        int luasorang = sigm;       //ini jadi diganti jadi jumlah orang aja gak?
+//        double densitas = luasorang/luas;
+        double densitas = dsigm/dluas;
+        Log.d(TAG, "Kepadatan: "+densitas + " " + dluas + " " + dsigm);
 
         if(densitas<=0.25)       //sigm=jumlah orang
         {
@@ -169,8 +177,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void initializeArray(){
-        ptr = new float[]{sedikit,sedikit,sedikit,sedikit,sedang,sedang,sedang,sedang,banyak,banyak,banyak,banyak,full,full,full,full};
-        nilteng = new float[]{sdingin,dingin,normal,panas,sdingin,dingin,normal,panas,sdingin,dingin,normal,panas,sdingin,dingin,normal,panas};
+        ptr = new double[]{sedikit,sedikit,sedikit,sedikit,sedang,sedang,sedang,sedang,banyak,banyak,banyak,banyak,full,full,full,full};
+        nilteng = new double[]{sdingin,dingin,normal,panas,sdingin,dingin,normal,panas,sdingin,dingin,normal,panas,sdingin,dingin,normal,panas};
     }
     //ptr[] = variabel untuk menampung nilai derajat keanggotaan dari input
     //nilteng[] = nilai titik tengah dari grafik fuzzyfikasi putaran kipas angin yang merupakan implementasi dari rule
@@ -273,7 +281,8 @@ public class MainActivity extends AppCompatActivity {
         }
         else
         {
-            coa=jml_nilteng/jml_nil;
+            DecimalFormat df = new DecimalFormat("#.##");
+            coa=Double.valueOf(df.format(jml_nilteng/jml_nil));
         }
 
         if(coa<=96){
