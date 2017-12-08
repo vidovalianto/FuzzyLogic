@@ -179,7 +179,7 @@ public class MainActivity extends AppCompatActivity {
     public void initializeArray(){
         ptr = new double[16];
         nilteng = new double[16];
-        
+
         //bisa juga dengan kode dibawah
 //        ptr = new double[]{sedikit,sedikit,sedikit,sedikit,sedang,sedang,sedang,sedang,banyak,banyak,banyak,banyak,full,full,full,full};
 //        nilteng = new double[]{sdingin,dingin,normal,panas,sdingin,dingin,normal,panas,sdingin,dingin,normal,panas,sdingin,dingin,normal,panas};
@@ -192,7 +192,7 @@ public class MainActivity extends AppCompatActivity {
 
         //rule based
         if(sedikit<sdingin)
-        {ptr[0]=sedikit;nilteng[0]=64;}
+        {ptr[0]=sedikit;nilteng[0]=64*ptr[0]-128;}
         else
         {ptr[0]=sdingin;nilteng[0]=64;}
 
@@ -289,9 +289,9 @@ public class MainActivity extends AppCompatActivity {
 
         if(coa<=96){
             tv_hintkecepatan.setText("Sangat Pelan");
-        }else if(coa<=160){
+        }else if(coa<=160&&coa>96){
             tv_hintkecepatan.setText("Pelan");
-        }else if(coa<=224){
+        }else if(coa<=224&&coa>160){
             tv_hintkecepatan.setText("Sedang");
         }else{
             tv_hintkecepatan.setText("Cepat");
