@@ -177,13 +177,17 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void initializeArray(){
-        ptr = new double[]{sedikit,sedikit,sedikit,sedikit,sedang,sedang,sedang,sedang,banyak,banyak,banyak,banyak,full,full,full,full};
-        nilteng = new double[]{sdingin,dingin,normal,panas,sdingin,dingin,normal,panas,sdingin,dingin,normal,panas,sdingin,dingin,normal,panas};
+        ptr = new double[16];
+        nilteng = new double[16];
+        
+        //bisa juga dengan kode dibawah
+//        ptr = new double[]{sedikit,sedikit,sedikit,sedikit,sedang,sedang,sedang,sedang,banyak,banyak,banyak,banyak,full,full,full,full};
+//        nilteng = new double[]{sdingin,dingin,normal,panas,sdingin,dingin,normal,panas,sdingin,dingin,normal,panas,sdingin,dingin,normal,panas};
     }
     //ptr[] = variabel untuk menampung nilai derajat keanggotaan dari input
     //nilteng[] = nilai titik tengah dari grafik fuzzyfikasi putaran kipas angin yang merupakan implementasi dari rule
 
-    //implikasi -> metode tsukamoto -> diambil yang membership degreenya kecil
+    //implikasi -> implikasi mamdani operasi min()
     public void rule(){
 
         //rule based
